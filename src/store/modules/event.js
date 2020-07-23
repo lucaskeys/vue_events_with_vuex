@@ -6,7 +6,8 @@ export const namespaced = true;
 export const state = {
   events: [],
   eventsTotal: 0,
-  event: {}
+  event: {},
+
 }
 
 export const mutations = {

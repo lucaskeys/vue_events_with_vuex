@@ -11,4 +11,9 @@ export default new Vuex.Store({
     event,
     notification
   },
+  state: {
+    categories: [
+      'music', 'food', 'movies', 'sports'
+    ]
+  }
 })
