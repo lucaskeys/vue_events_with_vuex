@@ -22,7 +22,7 @@ export default {
   },
   created() {
     this.perPage = 4
-    this.$store.dispatch('fetchEvents', {
+    this.$store.dispatch('event/fetchEvents', {
       perPage: this.perPage,
       page: this.page
     })
@@ -35,6 +35,7 @@ export default {
     hasNextPage() {
       return this.event.eventsTotal > this.page * this.perPage
     },
+    // event and user are the modules name you are importing
   ...mapState(['event', 'user'])
   // mapstate all import event and need to access the object inside
   } 
