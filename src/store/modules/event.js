@@ -57,7 +57,7 @@ createEvent({commit, dispatch}, payload) {
     throw error
   })
 },
-fetchEvent({commit, dispatch, getters}, id) {
+fetchEvent({commit, getters}, id) {
   // Existing getter below that looks at our events array - so we can call this getter first to see if it finds the event without having to make another API call - if found, commit mutation, if not, make API call
   let event = getters.getEventById(id)
   if(event) {
@@ -70,13 +70,6 @@ fetchEvent({commit, dispatch, getters}, id) {
       commit('SET_EVENT', response.data)
       return response.data
           // returns response from action so that it can be passed in as a prop in the actions thats called in route guard
-    }).catch(error => {
-      const notification = {
-        type: 'error',
-        message: 'There was a problem fetching event: ' + error.message
-      }
-      dispatch('notification/add', notification, {root: true})
-      // allows you to go to the root store, and run the add action
     })
   }
 }

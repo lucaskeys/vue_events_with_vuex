@@ -8,7 +8,9 @@ const apiClient = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'
-  }
+  },
+  timeout: 10000
+  // throws an error if the API call takes longer than 10sec
 })
 
 apiClient.interceptors.request.use(config => {
