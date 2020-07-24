@@ -11,7 +11,8 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'event-list', 
-    component: EventList
+    component: EventList,
+    props: true
   },
   {
     path: '/event/:id',
@@ -41,6 +42,16 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     NProgress.start()
     next()
+})
+
+router.beforeResolve((to, from, next) => {
+  const currentPage = parseInt(to.query.page) || 1
+  store.dispatch('event/fetchEvents', {
+    page: currentPage
+  }).then(() => {
+    to.params.page = currentPage
+    next()
+  })
 })
 
 router.afterEach(() => {

@@ -7,7 +7,7 @@ export const state = {
   events: [],
   eventsTotal: 0,
   event: {},
-
+  perPage: 3
 }
 
 export const mutations = {
@@ -25,8 +25,8 @@ export const mutations = {
   }
 }
 export const actions = {
-fetchEvents({commit, dispatch}, {perPage, page})  {
-  EventService.getEvents(perPage, page).then(response => {
+fetchEvents({commit, dispatch, state}, {page})  {
+  return EventService.getEvents(state.perPage, page).then(response => {
     console.log('Totel Events are:' + response.headers['x-total-count'])
     commit('SET_EVENTS_TOTAL', parseInt(response.headers['x-total-count']))
     commit('SET_EVENTS', response.data)
@@ -58,6 +58,7 @@ createEvent({commit, dispatch}, payload) {
   })
 },
 fetchEvent({commit, dispatch, getters}, id) {
+  // Existing getter below that looks at our events array - so we can call this getter first to see if it finds the event without having to make another API call - if found, commit mutation, if not, make API call
   let event = getters.getEventById(id)
   if(event) {
     commit('SET_EVENT', event)

@@ -15,25 +15,32 @@
 <script>
 import EventCard from '@/components/EventCard.vue';
 import {mapState} from 'vuex'
+// import store from '@/store'
 export default {
-
+  props: {
+    page: {
+      type: Number,
+      required: true
+    }
+  },
   components: {
     EventCard: EventCard
   },
   created() {
-    this.perPage =6
-    this.$store.dispatch('event/fetchEvents', {
-      perPage: this.perPage,
-      page: this.page
-    })
+    // moved to state
+    // this.perPage = 6
+    // this.$store.dispatch('event/fetchEvents', {
+    //   perPage: this.perPage,
+    //   page: this.page
+    // })
   },
   computed: {
-    page() {
-      // fetches the page you are on
-      return parseInt(this.$route.query.page) || 1
-    },
+    // page() {
+    //   // fetches the page you are on
+    //   return parseInt(this.$route.query.page) || 1
+    // },
     hasNextPage() {
-      return this.event.eventsTotal > this.page * this.perPage
+      return this.event.eventsTotal > this.page * this.event.perPage
     },
     // event and user are the modules name you are importing
   ...mapState(['event', 'user'])
