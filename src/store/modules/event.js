@@ -61,10 +61,14 @@ fetchEvent({commit, dispatch, getters}, id) {
   let event = getters.getEventById(id)
   if(event) {
     commit('SET_EVENT', event)
+    return event
+    // returns event from action so that it can be passed in as a prop in the actions thats called in route guard
   } else {
     return EventService.getEvent(id)
     .then(response => {
       commit('SET_EVENT', response.data)
+      return response.data
+          // returns response from action so that it can be passed in as a prop in the actions thats called in route guard
     }).catch(error => {
       const notification = {
         type: 'error',
@@ -77,22 +81,7 @@ fetchEvent({commit, dispatch, getters}, id) {
 }
 }
 export const getters = {
-// getEvents: state => {
-//   return state.events
-// },
-// getUser: (state) => {
-//   return state.user.name
-// },
-// catLength: state => {
-//   return state.categories.length
-// },
-// doneTodos: state => {
-//   return state.todos.filter(todo => todo.done)
-// },
-// // passing a getter into another getter
-// activeTodosCount: (state, getters) => {
-//   return state.todos.length - getters.doneTodos.length
-// },
+
 getEventById: state => id => {
   return state.events.find(event => event.id === id)
 }

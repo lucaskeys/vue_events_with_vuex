@@ -19,7 +19,8 @@ Vue.use(VueRouter)
     component: EventShow,
     props: true,
     beforeEnter(to, from, next) {
-      store.dispatch('event/fetchEvent', to.params.id).then(() => {
+      store.dispatch('event/fetchEvent', to.params.id).then((event) => {
+        to.params.event = event
         next()
       })
     }
