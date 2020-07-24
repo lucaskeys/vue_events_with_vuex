@@ -7,7 +7,7 @@ export const state = {
   events: [],
   eventsTotal: 0,
   event: {},
-  perPage: 3
+  perPage: 6
 }
 
 export const mutations = {
