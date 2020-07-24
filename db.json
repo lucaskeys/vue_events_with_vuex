@@ -281,6 +281,42 @@
       "date": "2020-05-02T00:59:00.000Z",
       "time": "3:00",
       "attendees": []
+    },
+    {
+      "id": 2079520,
+      "user": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "category": "movies",
+      "organizer": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "title": "SUCCESS",
+      "description": "this was a test",
+      "location": "test",
+      "date": "2020-07-03T00:15:00.000Z",
+      "time": "4:00",
+      "attendees": []
+    },
+    {
+      "id": 8596645,
+      "user": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "category": "movies",
+      "organizer": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "title": "test2",
+      "description": "test2",
+      "location": "test2",
+      "date": "2020-07-02T06:19:00.000Z",
+      "time": "4:00",
+      "attendees": []
     }
   ]
 }
