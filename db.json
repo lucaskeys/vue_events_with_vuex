@@ -317,6 +317,24 @@
       "date": "2020-07-02T06:19:00.000Z",
       "time": "4:00",
       "attendees": []
+    },
+    {
+      "id": 1644288,
+      "user": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "category": "",
+      "organizer": {
+        "id": "abc",
+        "name": "Username"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
